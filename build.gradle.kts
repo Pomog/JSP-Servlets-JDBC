@@ -26,10 +26,17 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("javax.servlet.jsp:javax.servlet.jsp-api:2.3.3")
+	implementation("org.apache.tomcat.embed:tomcat-embed-jasper:10.1.11")
+
 	compileOnly("org.projectlombok:lombok")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	runtimeOnly("com.h2database:h2")
+	runtimeOnly("com.h2database:h2" +
+			"")
+
 	annotationProcessor("org.projectlombok:lombok")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
