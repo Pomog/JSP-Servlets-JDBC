@@ -4,7 +4,7 @@
 
 <h3> Hello World!  JSP <h3>
 
-The time on the server  is <%= new.java.util.Date() %>
+    The time on the server is <%= new java.util.Date() %>
 
 </body>
 
