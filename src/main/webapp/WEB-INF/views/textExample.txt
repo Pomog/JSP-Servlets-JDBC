@@ -1,0 +1,4 @@
+Keep in mind that the <%@ include %> directive is a static include,
+meaning that the included content is inserted during the JSP compilation phase.
+If you need more dynamic inclusion based on conditions or variables,
+you can use the <jsp:include> tag instead.

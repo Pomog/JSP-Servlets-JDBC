@@ -10,4 +10,10 @@ public class JSPController {
     public String index() {
         return "index";
     }
+
+
+    @RequestMapping(value = {"exp1"})
+    public String expressions() {
+        return "expressions";
+    }
 }
