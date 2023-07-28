@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.io.BufferedReader, java.io.FileReader" %>
 <%@ page import="JSP.training.demo.testUtils" %>
-<%@ page import="java.util.Enumeration" %>
+<%@ page import="java.util.*" %>
 
 <html>
 
@@ -34,6 +34,41 @@ Pets :
         }
     }
 %>
+<br/><br/>
+<h2>Try Sessions</h2><br/>
+<form action="exp1">
+    Add new Item <input type="text" name="theItem" />
+    <input type="submit" value="Submit" />
+</form>
+<br/><br/>
+Item input : <%= request.getParameter("theItem")%>
+
+<%
+    List<String> items = (List<String>) session.getAttribute("myItemList");
+    if (items == null){
+        items = new ArrayList<String>();
+        session.setAttribute("myItemList", items);
+    }
+
+    String theItem = request.getParameter("theItem");
+    if (theItem != null){
+        boolean b = !theItem.trim().equals("") && !items.contains(theItem.trim());
+        if (b) {
+            items.add(theItem);
+        }
+    }
+%>
+<hr>
+<b> List of Items</b><br/>
+<ol>
+    <%
+        for (String item : items){
+            out.print("<li>" + item + "</li>");
+        }
+    %>
+</ol>
+
+
 
 <br/><br/>
 <h2> Testing JSP Scriptlets </h2>
