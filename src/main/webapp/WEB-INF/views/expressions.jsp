@@ -7,15 +7,19 @@
 
 <head>
     <title>My JSP Page</title>
+    <script src="scripts.js"></script>
+
 </head>
 
 <body>
 
 <jsp:include page="header.jsp" />
-<div id="headerContent"></div>
-<br/><br/>
+
+
 <h2> including HTML Form </h2>
-<div id="formContainer"></div>
+<jsp:include page="formJS.jsp" />
+
+<div id="includeHTML"></div>
 <br/><br/>
 Confirmed : ${param.firstName} ${param.lastName}
 
@@ -82,21 +86,6 @@ Total User-Agent Count: <%= userAgentCount %><br/>
 Request language(local) : <%= request.getLocale()%>
 <br/><br/>
 <jsp:include page="footer.jsp" />
-
-
-<script>
-    function includeHTML(url, targetId) {
-        fetch(url)
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById(targetId).innerHTML = html;
-            })
-            .catch(error => console.error('Error fetching HTML:', error));
-    }
-    // Call
-    includeHTML('/headerInHTML.html', 'headerContent');
-    includeHTML('/formTest.html', 'formContainer');
-</script>
 
 </body>
 </html>
