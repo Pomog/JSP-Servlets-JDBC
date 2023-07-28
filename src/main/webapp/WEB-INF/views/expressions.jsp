@@ -1,13 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.io.BufferedReader, java.io.FileReader" %>
 <%@ page import="JSP.training.demo.testUtils" %>
 <%@ page import="java.util.Enumeration" %>
 
 <html>
 
+<head>
+    <title>My JSP Page</title>
+</head>
+
 <body>
 
 <jsp:include page="header.jsp" />
+<div id="headerContent"></div>
+<br/><br/>
+<h2> including HTML Form </h2>
+<div id="formContainer"></div>
+<br/><br/>
+Confirmed : ${param.firstName} ${param.lastName}
 
+<br/><br/>
+<h2> Testing JSP Scriptlets </h2>
 <%
     String filePath = "E:\\JSP\\demo\\src\\main\\webapp\\WEB-INF\\views\\textExample.txt";
     try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
@@ -69,6 +82,21 @@ Total User-Agent Count: <%= userAgentCount %><br/>
 Request language(local) : <%= request.getLocale()%>
 <br/><br/>
 <jsp:include page="footer.jsp" />
+
+
+<script>
+    function includeHTML(url, targetId) {
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById(targetId).innerHTML = html;
+            })
+            .catch(error => console.error('Error fetching HTML:', error));
+    }
+    // Call
+    includeHTML('/headerInHTML.html', 'headerContent');
+    includeHTML('/formTest.html', 'formContainer');
+</script>
 
 </body>
 </html>
