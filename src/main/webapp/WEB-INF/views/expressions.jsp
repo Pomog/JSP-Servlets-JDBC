@@ -19,9 +19,21 @@
 <h2> including HTML Form </h2>
 <jsp:include page="formJS.jsp" />
 
-<div id="includeHTML"></div>
 <br/><br/>
-Confirmed : ${param.firstName} ${param.lastName}
+Confirmed : ${param.firstName} ${param.lastName} ${param.country}
+<br/>
+Language : ${param.language}
+<br/><br/>
+Pets :
+<br/>
+<%
+    String[] pets = request.getParameterValues("pet");
+    if (pets != null) {
+        for (String pet : pets) {
+            out.print(pet + "<br/>");
+        }
+    }
+%>
 
 <br/><br/>
 <h2> Testing JSP Scriptlets </h2>
