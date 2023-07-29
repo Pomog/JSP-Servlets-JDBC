@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.io.BufferedReader, java.io.FileReader" %>
 <%@ page import="JSP.training.demo.testUtils" %>
@@ -157,6 +159,14 @@ Total User-Agent Count: <%= userAgentCount %><br/>
 <% } %>
 
 Request language(local) : <%= request.getLocale()%>
+
+<br/><br/>
+<h2> Testing JSTL </h2>
+
+<%--set variable "stuff" value new java.util.Date() using JSTL--%>
+<c:set var="stuff" value="<%= new java.util.Date()%>" />
+Current Time on Server is ${stuff}
+
 <br/><br/>
 <jsp:include page="footer.jsp" />
 

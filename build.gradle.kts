@@ -26,8 +26,10 @@ dependencies {
 //	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("javax.servlet.jsp:javax.servlet.jsp-api:2.3.3")
-	implementation("javax.servlet:jstl:1.2")
+
+	implementation("jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0")
+	implementation("org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0")
+
 	implementation("org.apache.tomcat.embed:tomcat-embed-jasper:10.1.11")
 
 	compileOnly("org.projectlombok:lombok")
