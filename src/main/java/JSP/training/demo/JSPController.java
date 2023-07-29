@@ -17,4 +17,9 @@ public class JSPController {
     public String expressions() {
         return "expressions";
     }
+
+    @RequestMapping(value = {"cookies"})
+    public String cookies() {
+        return "cookies";
+    }
 }

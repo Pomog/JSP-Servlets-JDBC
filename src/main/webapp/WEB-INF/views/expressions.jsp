@@ -67,6 +67,32 @@ Item input : <%= request.getParameter("theItem")%>
         }
     %>
 </ol>
+<hr>
+<h2> Testing Cookies </h2>
+
+<%
+    String strCookie = request.getParameter("cookieName");
+    Cookie tcookie = new Cookie("first.cookieCreated", strCookie);
+    tcookie.setMaxAge(60*60*24);
+    response.addCookie(tcookie);
+%>
+Your name taken for cookie is : ${param.cookieName}
+
+<%
+    String readCookie = "no Name";
+    Cookie[] tCookies = request.getCookies();
+    if (tCookies != null){
+        for (Cookie cookie : tCookies){
+            if ("first.cookieCreated".equals(cookie.getName())){
+                readCookie = cookie.getValue();
+                break;
+            }
+        }
+    }
+%>
+<br/><br/>
+<h4>Your name read form cookies is <%= readCookie%></h4>
+
 
 
 
