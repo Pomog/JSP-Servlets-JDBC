@@ -246,6 +246,22 @@ Current Time on Server is ${stuff}
         </tr>
     </c:forEach>
 </table>
+<br/><br/>
+
+<c:forEach var="person" items="${persons}">
+    <c:choose>
+        <c:when test="${person.isAdult}">
+            <h4>Adult Person</h4>
+            <c:out value="${person.firstName}"/>
+            <c:out value="${person.lastName}"/>
+        </c:when>
+        <c:otherwise>
+            <h4>Teen Person</h4>
+            <c:out value="${person.firstName}"/>
+            <c:out value="${person.lastName}"/>
+        </c:otherwise>
+    </c:choose>
+</c:forEach>
 
 
 
