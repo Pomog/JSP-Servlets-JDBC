@@ -95,11 +95,8 @@ Your name taken for cookie is : ${param.cookieName}
 <br/><br/>
 <h4>Your name read form cookies is <%= readCookie%></h4>
 
-
-
-
 <br/><br/>
-<h2> Testing JSP Scriptlets </h2>
+                                                                <h2> Testing JSP Scriptlets </h2>
 <%
     String filePath = "E:\\JSP\\demo\\src\\main\\webapp\\WEB-INF\\views\\textExample.txt";
     try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
@@ -221,6 +218,33 @@ Current Time on Server is ${stuff}
             <td>${person.isAdult}</td>
     </tr>
 </c:forEach>
+</table>
+<hr>
+<table>
+    <tr>
+        <th colspan="3">Adult persons</th>
+    </tr>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Is Adult</th>
+    </tr>
+    <c:forEach var="person" items="${persons}">
+        <tr>
+            <td>${person.firstName}</td>
+            <td>${person.lastName}</td>
+            <td>
+               <c:if test="${person.isAdult}">
+                   Adult
+               </c:if>
+
+                <c:if test="${not person.isAdult}">
+                    Teen
+                </c:if>
+
+            </td>
+        </tr>
+    </c:forEach>
 </table>
 
 
