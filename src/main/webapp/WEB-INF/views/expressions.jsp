@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.io.BufferedReader, java.io.FileReader" %>
@@ -140,7 +141,7 @@ Using Java Class
 Using testUtils.class : <%= testUtils.toLower("Make It lower With Method")%>
 <br/><br/>
 
-<h3> JSP Built-in Obj</h3>
+                                                                                <h3> JSP Built-in Obj</h3>
 Request user agent : <br/><%= request.getHeaders("User-Agent")%>
 <br/>
 Request user agent get Enumeration object  : <br/>
@@ -262,7 +263,21 @@ Current Time on Server is ${stuff}
         </c:otherwise>
     </c:choose>
 </c:forEach>
-
+                                                                <h2> Testing JSP Tag Functions</h2>
+<b> Size of the Persons List is : ${fn:length(persons)} </b>
+<br/><br/>
+Upper Case : ${fn:toUpperCase(persons[0].firstName)}
+<br/><br/>
+<c:set var="stringToSplit" value="Paris,Marseille,Lyon, Toulouse, Nice" />
+<b>Initial String : ${stringToSplit}</b>
+<c:set var="splitString" value="${fn:split(stringToSplit, ', ')}" />
+ <ul>
+     <c:forEach var="city" items="${splitString}">
+         <li>${city}</li>
+     </c:forEach>
+ </ul>
+<c:set var="joinString" value="${fn:join(splitString, ', ')}" />
+<b>Join String : ${joinString}</b>
 
 
 <br/><br/>
