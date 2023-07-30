@@ -4,13 +4,13 @@
 <%@ page import="java.io.BufferedReader, java.io.FileReader" %>
 <%@ page import="JSP.training.demo.testUtils" %>
 <%@ page import="java.util.*" %>
+<%@ page import="JSP.training.demo.Person" %>
 
 <html>
 
 <head>
     <title>My JSP Page</title>
     <script src="scripts.js"></script>
-
 </head>
 
 <body>
@@ -70,7 +70,7 @@ Item input : <%= request.getParameter("theItem")%>
     %>
 </ol>
 <hr>
-<h2> Testing Cookies </h2>
+                                                                        <h2> Testing Cookies </h2>
 
 <%
     String strCookie = request.getParameter("cookieName");
@@ -166,6 +166,64 @@ Request language(local) : <%= request.getLocale()%>
 <%--set variable "stuff" value new java.util.Date() using JSTL--%>
 <c:set var="stuff" value="<%= new java.util.Date()%>" />
 Current Time on Server is ${stuff}
+<br/><br/>
+<%
+    String[] countries = {"India", "USA", "UK", "Canada", "Australia"};
+    pageContext.setAttribute("countries", countries);
+%>
+<c:forEach var="country" items="${countries}">
+    ${country}<br/>
+</c:forEach>
+
+<br/><br/>
+<h2> HTML table JSTL </h2>
+<%
+    List<Person> persons = new ArrayList<Person>();
+    persons.add(new Person("John", "Doe", false));
+    persons.add(new Person("Jane", "Doe", true));
+    persons.add(new Person("John", "Smith", false));
+    persons.add(new Person("Jane", "Smith", true));
+
+    pageContext.setAttribute("persons", persons);
+%>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        border: 4px solid #ddd;
+    }
+
+    th {
+        background-color: yellow;
+        text-align: left;
+    }
+
+    tr {
+        background-color: green;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Is Adult</th>
+    </tr>
+<c:forEach var="person" items="${persons}">
+    <tr>
+            <td>${person.firstName}</td>
+            <td>${person.lastName}</td>
+            <td>${person.isAdult}</td>
+    </tr>
+</c:forEach>
+</table>
+
+
 
 <br/><br/>
 <jsp:include page="footer.jsp" />
