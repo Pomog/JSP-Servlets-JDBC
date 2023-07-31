@@ -12,7 +12,6 @@ public class JSPController {
         return "index";
     }
 
-
     @RequestMapping(value = {"exp1"})
     public String expressions() {
         return "expressions";
@@ -21,5 +20,10 @@ public class JSPController {
     @RequestMapping(value = {"cookies"})
     public String cookies() {
         return "cookies";
+    }
+
+    @RequestMapping(value = {"i18n"})
+    public String i18n() {
+        return "i18n";
     }
 }
