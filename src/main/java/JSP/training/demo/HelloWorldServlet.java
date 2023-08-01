@@ -22,7 +22,7 @@ public class HelloWorldServlet extends HttpServlet{
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h3>Hello World</h3>");
+        out.println("<h1>Hello World</h1>");
         out.println("<hr>");
         out.println("Time on server is: " + new java.util.Date());
         out.println("</body></html>");

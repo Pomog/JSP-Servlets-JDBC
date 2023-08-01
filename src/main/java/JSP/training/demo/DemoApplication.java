@@ -26,4 +26,11 @@ public class DemoApplication extends SpringBootServletInitializer {
 		return bean;
 	}
 
+	@Bean
+	public ServletRegistrationBean<StudentServlet> servletRegistrationBean2() {
+		ServletRegistrationBean<StudentServlet> bean = new ServletRegistrationBean<>(new StudentServlet(), "/StudentServlet");
+		bean.setLoadOnStartup(1);
+		return bean;
+	}
+
 }
