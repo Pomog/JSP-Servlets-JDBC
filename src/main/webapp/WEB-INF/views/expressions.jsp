@@ -45,6 +45,7 @@ Pets :
 </form>
 <br/><br/>
 Item input : <%= request.getParameter("theItem")%>
+<br/><br/>
 
 <%
     List<String> items = (List<String>) session.getAttribute("myItemList");

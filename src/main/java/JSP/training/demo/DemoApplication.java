@@ -33,4 +33,11 @@ public class DemoApplication extends SpringBootServletInitializer {
 		return bean;
 	}
 
+	@Bean
+	public ServletRegistrationBean<TestParametersServlet> servletRegistrationBean3() {
+		var bean = new ServletRegistrationBean<>(new TestParametersServlet(), "/TestParametersServlet");
+		bean.setLoadOnStartup(1);
+		return bean;
+	}
+
 }
