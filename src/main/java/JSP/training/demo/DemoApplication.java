@@ -40,4 +40,11 @@ public class DemoApplication extends SpringBootServletInitializer {
 		return bean;
 	}
 
+	@Bean
+	public ServletRegistrationBean<MVCServletController> servletRegistrationBean4() {
+		var bean = new ServletRegistrationBean<>(new MVCServletController(), "/MVCServletController");
+		bean.setLoadOnStartup(1);
+		return bean;
+	}
+
 }
