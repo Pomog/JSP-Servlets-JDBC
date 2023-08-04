@@ -1,0 +1,23 @@
+/* Apply styles to the entire table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Apply styles to table header cells */
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Apply styles to table data cells */
+td {
+    border: 3px solid #ddd;
+    padding: 8px;
+}
+
+/* Apply alternate background color to rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
