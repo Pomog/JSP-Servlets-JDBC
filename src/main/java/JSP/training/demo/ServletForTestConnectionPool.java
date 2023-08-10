@@ -20,7 +20,7 @@ public class ServletForTestConnectionPool {
     }
 
     @RequestMapping("/ServletForTestConnectionPool")
-    public ModelAndView doGet() throws SQLException {
+    public ModelAndView doGet() {
         Iterable<StudentEntity> studentEntities  = studentRepository.findAll();
        //Print out the studentEntities
         for (StudentEntity studentEntity : studentEntities) {
