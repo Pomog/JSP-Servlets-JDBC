@@ -1,4 +1,4 @@
-((<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,7 +7,7 @@
     <title>Your Entity Data</title>
 </head>
 <body>
-<h2>Your Entity Data</h2>
+<h2>SQL DB - Entity Data</h2>
 <table>
     <tr>
         <th>ID</th>

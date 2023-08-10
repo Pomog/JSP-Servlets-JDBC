@@ -2,7 +2,8 @@ package JSP.training.demo;
 
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
+import javax.sql.DataSource;
+
 
 public interface StudentRepository extends CrudRepository<StudentEntity, Integer> {
 
