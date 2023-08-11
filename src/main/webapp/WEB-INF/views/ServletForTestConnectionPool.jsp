@@ -3,7 +3,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        /* Apply styles to table header cells */
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+            padding: 5px;
+        }
+
+        /* Apply styles to table data cells */
+        td {
+            vertical-align: center;
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        /* Apply alternate background color to rows */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {background-color: coral;}
+    </style>
+
     <title>Your Entity Data</title>
 </head>
 <body>
